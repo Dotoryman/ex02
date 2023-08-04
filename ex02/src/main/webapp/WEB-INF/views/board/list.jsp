@@ -43,6 +43,20 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<!-- pagination.. -->
+				<div class="pull-right">
+					<ul class="pagination">
+					<c:if test="${pageMaker.prev }">
+						<li class="pagenate_button previous"><a href="">이전</a></li>
+					</c:if>
+						<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+							<li class="pagenate_button ${pageMaker.cri.pageNum == num ? 'active' : '' }"><a href="">${num }</a></li>
+						</c:forEach>
+					<c:if test="${pageMaker.next }">
+						<li class="pagenate_button next"><a href="">다음</a></li>
+					</c:if>
+					</ul>
+				</div>	
 			</div>
 		</div>
 	</div>
