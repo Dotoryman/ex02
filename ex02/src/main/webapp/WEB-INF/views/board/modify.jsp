@@ -15,6 +15,13 @@
 		<div class="panel-heading">Board Modify Page</div>
 		<div class="panel-body">
 			<form role="form" action="/board/modify" method="post">
+				<!-- pageNum, amount 를 파라미터로 지정 -->
+				<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }" />'>
+				<input type="hidden" name="amount"	value='<c:out value="${cri.amount }" />'>
+				<!-- type과 keyword 를 파라미터로 지정 -->
+				<input type="hidden" name="type" value='<c:out value="${cri.type }" />'>
+				<input type="hidden" name="keyword" value='<c:out value="${cri.keyword }" />'>
+				
 				<div class="form-group">
 					<label>Bno</label> <input class="form-control" name="bno" readonly
 						value='<c:out value="${board.bno}"></c:out>'>
@@ -45,7 +52,7 @@
 				</div>
 				<button type="submit" class="btn btn-default" data-oper="modify">Submit</button>
 				<button type="submit" class="btn btn-danger" data-oper="remove">Remove</button>
-				<button type="reset" class="btn btn-info" data-oper="list">List</button>
+				<button type="submit" class="btn btn-info" data-oper="list">List</button>
 			</form>
 		</div>
 	</div>
@@ -60,8 +67,21 @@
 			if (operation == 'remove'){
 				formObj.attr('action', '/board/remove'); // form.action = /board/remove
 			} else if (operation =='list'){
-				location.href = '/board/list'
-				return;
+//				location.href = '/board/list'
+//				return;
+//				전송방식을 post->get으로 변경
+				formObj.attr('action', '/board/list').attr('method', 'get');
+				var pageNumTag = $('input[name="pageNum"]').clone();
+				var amountTag = $('input[name="amount"]').clone();
+				var typeTag = $('input[name="type"]').clone();
+				var keywordTag = $('input[name="keyword"]').clone();
+				
+				
+				formObj.empty(); //하위요소를 제거, 필요없는 파라미터 제거하기위해서
+				formObj.append(pageNumTag);
+				formObj.append(amountTag);
+				formObj.append(typeTag);
+				formObj.append(keywordTag);
 			}
 			formObj.submit(); // submit이벤트 호출~
 		})
