@@ -49,7 +49,21 @@
 		</div>
 	</div>
 </div>
+<!-- 댓글등록 시작 -->
+<div>
+	<form id="replyFrm">
+		<input type="hidden" name="bno" value="294">
+		<input type="hidden" name="replyer" value="카눈">
+		<input type="text" name="reply">
+		<button type="button" id="addReply">댓글등록</button>
+	</form>
+</div>
+<!-- 댓글등록 끝 -->
 
+<!-- 댓글목록 시작 -->
+<div id="replyList"></div>
+<!-- 댓글목록 끝 -->
+<script src="/resources/js/reply.js"></script>
 
 <script>
 	/* 	$(document).ready(function() {

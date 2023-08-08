@@ -27,11 +27,12 @@ public class BoardController {
 
 	
 	//전체조회
-	@GetMapping("/list")
-	public void list(Model model, Criteria cri) { 
+	@GetMapping("/list") // 이렇게 이름 같으면 String을 void로 바꾸고 리턴지우고 하면 된다
+	public String list(Model model, Criteria cri) { 
 		int totalCnt = service.getTotalCount(cri);
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, totalCnt));
+		return "board/list";
 	}
 	
 	//등록

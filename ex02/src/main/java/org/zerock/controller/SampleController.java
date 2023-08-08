@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.SampleVO;
@@ -18,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 
 // jsp페이지 생성 (X) -> json 데이터 생성을 위한 컨트롤러
 
-@RestController
+@RestController //@ResponseBody 포함
 @RequestMapping("/sample")
 @Log4j
 public class SampleController {
@@ -29,7 +30,7 @@ public class SampleController {
 		return "저녁 뭐먹지";
 	}
 
-	@GetMapping(value = "/getSample", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(value = "/getSample", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public SampleVO getSample() {
 		return new SampleVO(100, "조지", "부시");
 	}
@@ -65,7 +66,7 @@ public class SampleController {
 		}
 		return result;
 	}
-	
+	// http://localhost:8081/sample/product?cat=coffee&pid=353235
 	@GetMapping("/product/{cat}/{pid}")
 	public String[] getPath(@PathVariable("cat") String cat, @PathVariable("pid") Integer pid) {
 		return new String[] {"category : " + cat , "product : " + pid };

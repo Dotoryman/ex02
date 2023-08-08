@@ -27,10 +27,11 @@ public class ReplyController {
 	@Setter(onMethod_ = @Autowired)
 	private ReplyService service;
 	
-	@PostMapping(value="/new", 
-			consumes="application/json", 
-			produces=MediaType.TEXT_PLAIN_VALUE)
-	public ResponseEntity<String> create(@RequestBody ReplyVO vo){
+	//등록
+	@PostMapping(value="/new" 
+//			,consumes="application/json", produces=MediaType.TEXT_PLAIN_VALUE
+			)
+	public ResponseEntity<String> create(ReplyVO vo){
 		
 		int insertCnt = service.register(vo);
 		log.info(insertCnt);
@@ -39,6 +40,7 @@ public class ReplyController {
 			new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	// 전체조회 ( 게시글의 댓글 페이징 )
 	@GetMapping(value="/pages/{bno}/{page}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public ResponseEntity<List<ReplyVO>> getList(
 			@PathVariable("page") int page,
@@ -49,5 +51,10 @@ public class ReplyController {
 			List<ReplyVO> list = service.getList(cri, bno);
 			return new ResponseEntity<>(list, HttpStatus.OK);
 		}
+	//수정 397페이지 보고하셩
+	
+	
+	//삭제
+	
 	}
 
