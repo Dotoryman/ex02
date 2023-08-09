@@ -38,11 +38,15 @@
 
 
 			<form id="operForm" action="/board/modify" method="get">
-				<input type="hidden" id="bno" name="bno" value='<c:out value="${board.bno }" />'> 
-					<input	type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }" />'> 
-					<input type="hidden" name="amount" value='<c:out value="${cri.amount }" />'>
-					<input type="hidden" name="type" value='<c:out value="${cri.type }" />'>
-					<input type="hidden" name="keyword" value='<c:out value="${cri.keyword }" />'>
+				<input type="hidden" id="bno" name="bno"
+					value='<c:out value="${board.bno }" />'> <input
+					type="hidden" name="pageNum"
+					value='<c:out value="${cri.pageNum }" />'> <input
+					type="hidden" name="amount"
+					value='<c:out value="${cri.amount }" />'> <input
+					type="hidden" name="type" value='<c:out value="${cri.type }" />'>
+				<input type="hidden" name="keyword"
+					value='<c:out value="${cri.keyword }" />'>
 			</form>
 			<button data-oper="modify" class="btn btn-default">Modify</button>
 			<button data-oper="list" class="btn btn-default">list</button>
@@ -52,9 +56,9 @@
 <!-- 댓글등록 시작 -->
 <div>
 	<form id="replyFrm">
-		<input type="hidden" name="bno" value="294">
-		<input type="hidden" name="replyer" value="카눈">
-		<input type="text" name="reply">
+		<input type="hidden" name="bno" value="294"> <input
+			type="hidden" name="replyer" value="카눈"> <input type="text"
+			name="reply">
 		<button type="button" id="addReply">댓글등록</button>
 	</form>
 </div>
@@ -66,6 +70,8 @@
 <script src="/resources/js/reply.js"></script>
 
 <script>
+
+replyList(${board.bno});
 	/* 	$(document).ready(function() {
 	 var formObj = $('form');
 	 $('button').on('click', function() {

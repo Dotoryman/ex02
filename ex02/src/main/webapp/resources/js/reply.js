@@ -1,12 +1,12 @@
 /* filename : reply.js */
 
 console.log("댓글처리입니다옹")
-replyList();
 
-function replyList(){
+
+function replyList(bno){
 $.ajax({
 	method:"get",       //type으로 써도 된다
-	url:"/replies/pages/294/1",
+	url:`/replies/pages/${bno}/1`,
 	//data:
 	//contentType:
 	success: function(result) {
