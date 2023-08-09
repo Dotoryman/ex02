@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.ReplyVO;
+import org.zerock.mapper.BoardMapper;
 import org.zerock.mapper.ReplyMapper;
 
 import lombok.Setter;
@@ -16,8 +17,12 @@ public class ReplyServiceImpl implements ReplyService{
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
 	
+	@Setter(onMethod_ = @Autowired)
+	private BoardMapper boardMapper;
+	
 	@Override
 	public int register(ReplyVO vo) {
+		//boardMapper.updatereplyCnt()
 		return mapper.insert(vo); 
 	}
 

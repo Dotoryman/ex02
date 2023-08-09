@@ -50,11 +50,13 @@
 		</dependency>
 
 		<!-- Logging -->
+		<!-- 인터페이스 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${org.slf4j-version}</version>
 		</dependency>
+		<!-- 인터페이스 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
@@ -99,7 +101,7 @@
 			<version>1</version>
 		</dependency>
 
-		<!-- Servlet -->
+		<!-- Servlet 교체가능, 스프링 부트에서는 타임리프로 갈아질거다 -->
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -182,11 +184,8 @@
 			<version>2.15.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
-<!-- 		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>2.15.2</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.fasterxml.jackson.dataformat</groupId> <artifactId>jackson-dataformat-xml</artifactId> 
+			<version>2.15.2</version> </dependency> -->
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
