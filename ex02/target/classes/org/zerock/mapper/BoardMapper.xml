@@ -87,4 +87,8 @@
 		where bno = #{bno}
 	</update>
 	
+	<!-- 댓글갯수, 483p 중간부터 이어서 하셈 -->
+	<update id="updateReplyCnt">
+		update tbl_board set replycnt = replycnt + #{amount} where bno = #{bno}
+	</update>
 </mapper>
