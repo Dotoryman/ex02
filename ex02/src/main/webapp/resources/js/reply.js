@@ -21,13 +21,14 @@ $.ajax({
 }
 
 $("#addReply").on("click", function () {
+let bno = $('input[name = "bno"]').val();
+console.log(bno);
 	$.ajax({
 	method:"Post",
 	data: $("#replyFrm").serialize(),
 	url:"/replies/new",
 	success: function(result) {
-	//	alert(result);
-		replyList();	
+		replyList(bno);	
 	},
 	error: function (){}
 	//contentType:

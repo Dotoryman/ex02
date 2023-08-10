@@ -56,7 +56,7 @@
 <!-- 댓글등록 시작 -->
 <div>
 	<form id="replyFrm">
-		<input type="hidden" name="bno" value="294"> <input
+		<input type="hidden" name="bno" value="${board.bno}"> <input
 			type="hidden" name="replyer" value="카눈"> <input type="text"
 			name="reply">
 		<button type="button" id="addReply">댓글등록</button>
@@ -70,6 +70,7 @@
 <script src="/resources/js/reply.js"></script>
 
 <script>
+
 
 replyList(${board.bno});
 	/* 	$(document).ready(function() {

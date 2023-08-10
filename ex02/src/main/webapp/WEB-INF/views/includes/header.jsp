@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,9 +63,24 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="http://localhost:8081/board/list">Welcome to Dotory World</a>
+				<a class="navbar-brand" href="http://localhost:8081/board/list">Welcome
+					to Dotory World</a>
 			</div>
 			<!-- /.navbar-header -->
+
+			<!-- 로그인, 로그아웃 버튼 -->
+		<sec:authorize access="isAnonymous()">
+			로그인
+		</sec:authorize>
+		
+		<sec:authorize access="isAuthenticated()">
+			<sec:authentication property="principal.name"/>		
+		</sec:authorize>
+		
+		<sec:authorize access="hasRole('ROLE_ADMIN')">
+			관리자
+		</sec:authorize>
+
 
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown"><a class="dropdown-toggle"
