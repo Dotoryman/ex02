@@ -4,6 +4,7 @@ console.log("댓글처리입니다옹")
 
 
 function replyList(bno){
+
 $.ajax({
 	method:"get",       //type으로 써도 된다
 	url:`/replies/pages/${bno}/1`,
