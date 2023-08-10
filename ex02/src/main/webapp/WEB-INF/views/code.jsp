@@ -63,7 +63,7 @@
 			data: JSON.stringify(list), //querystring 또는  /  jsonstring
 			contentType: "application/json",
 			success: function(result) {
-				console.log(" 응답결과는 : " + result);
+				console.log(" 응답결과는 : " , result);
 			},
 			}) 
 	})
